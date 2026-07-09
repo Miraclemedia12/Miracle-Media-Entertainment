@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Packages &amp; Pricing Framework | Miracle Media Entertainment</title>
+    <meta name="description" content="Transparent corporate pricing tiers and service rates for web engineering, system automation, and digital marketing deployments by Miracle Media Entertainment.">
+    <!-- Core Stylesheet References -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pricing-header {
+            text-align: center;
+            padding: 8rem 2rem 4rem 2rem;
+            background: var(--bg-surface);
+        }
+        .pricing-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .pricing-container {
+            padding: 4rem 2rem;
+        }
+        
+        /* Tiered Cards Layout */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+            align-items: stretch;
+        }
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: scale(1.02);
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        .badge-popular {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tier-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+        .tier-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .tier-price {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: baseline;
+        }
+        .tier-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-left: 0.25rem;
+        }
+        .tier-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2.5rem 0;
+            flex-grow: 1;
+        }
+        .tier-features li {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tier-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 900;
+        }
+        
+        /* 16 Services Matrix Layout */
+        .matrix-section {
+            background: var(--bg-surface);
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .matrix-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .matrix-title h2 {
+            font-size: 1.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .matrix-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .matrix-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Compliance Disclaimer Box */
+        .compliance-disclaimer {
+            max-width: 850px;
+            margin: 4rem auto 2rem auto;
+            background: rgba(239, 68, 68, 0.04);
+            border: 1px dashed rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        .compliance-disclaimer h4 {
+            color: #b91c1c;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .compliance-disclaimer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       1. NAVIGATION HEADER (Consistent Framework)
+       ========================================================================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="Miracle Media Entertainment Home">
+                Miracle<span>Media</span>
+            </a>
+            
+            <nav class="nav-layout">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light website mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM6.99 16.89l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="#111827"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.5-.1 1 .3.9.8-.1.4-.4.8-.4 1.3 0 4.4 3.6 8 8 8 .4 0 .9-.1 1.3-.4.5-.3 1.1 0 .9.5-.9 4.7-5 8.2-8.8 8.2z"/></svg>
+                </button>
+                <a href="contact.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Get Started</a>
+                
+                <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle main menu navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+       2. HERO TITLE SECTION
+       ========================================================================== -->
+    <main>
+        <section class="pricing-header">
+            <div class="container">
+                <h1>Transparent <span class="primary-text">Service Tiers</span></h1>
+                <p class="text-muted" style="max-width: 650px; margin: 0 auto;">Standardized deployment tracking models. All billing is scope-defined, project-contracted, and finalized through verified business invoices.</p>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           3. TIERED PACKAGES GRID
+           ========================================================================== -->
+        <section class="pricing-container">
+            <div class="container">
+                <div class="pricing-grid">
+
+                    <!-- TIER 1: Corporate Essentials -->
+                    <div class="pricing-card">
+                        <div>
+                            <div class="tier-name">Corporate Essentials</div>
+                            <div class="tier-desc">Perfect for local storefronts, professional profiles, and highly polished corporate landing architecture.</div>
+                            <div class="tier-price">₦150,000<span>/ base</span></div>
+                            <ul class="tier-features">
+                                <li>Custom Frontend HTML5/CSS3</li>
+                                <li>Responsive Interface Design</li>
+                                <li>Corporate Brand Identity Layout</li>
+                                <li>Domain Routing &amp; DNS Launch</li>
+                                <li>Standard Contact Routing Forms</li>
+                                <li>1 Month Post-Launch Maintenance</li>
+                            </ul>
+                        </div>
+                        <a href="contact.html?tier=essentials" class="btn btn-outline" style="text-align: center; width: 100%;">Initialize Package Scope</a>
+                    </div>
+
+                    <!-- TIER 2: Business Growth (FEATURED) -->
+                    <div class="pricing-card featured">
+                        <span class="badge-popular">Most Requested</span>
+                        <div>
+                            <div class="tier-name">Business Growth Hub</div>
+                            <div class="tier-desc">Engineered for expanding enterprises requiring active database setups, customer panels, and campaign tracking.</div>
+                            <div class="tier-price">₦350,000<span>/ base</span></div>
+                            <ul class="tier-features">
+                                <li>Everything in Essentials Tier</li>
+                                <li>Multi-Page Site Architecture</li>
+                                <li>Relational Database Configuration</li>
+                                <li>Secure PHP Session Implementations</li>
+                                <li>Tracking Pixel Integration (TikTok/Google)</li>
+                                <li>Interactive Filtering Controls</li>
+                                <li>3 Months High-Priority Support</li>
+                            </ul>
+                        </div>
+                        <a href="contact.html?tier=growth" class="btn btn-primary" style="text-align: center; width: 100%;">Initialize Package Scope</a>
+                    </div>
+
+                    <!-- TIER 3: Custom Enterprise Automation -->
+                    <div class="pricing-card">
+                        <div>
+                            <div class="tier-name">Enterprise Automation</div>
+                            <div class="tier-desc">Designed for complex platforms, live tracking consoles, real-time dashboards, and full-stack software requirements.</div>
+                            <div class="tier-price">₦750,000<span>/ base</span></div>
+                            <ul class="tier-features">
+                                <li>Everything in Growth Tier</li>
+                                <li>Real-Time Firebase Administration Panel</li>
+                                <li>Advanced User Validation Modules</li>
+                                <li>Custom JavaScript &amp; API Integrations</li>
+                                <li>Complex CSS Keyframe Animations</li>
+                                <li>Dedicated Git Workflow Migration</li>
+                                <li>6 Months Full SLA Management</li>
+                            </ul>
+                        </div>
+                        <a href="contact.html?tier=enterprise" class="btn btn-outline" style="text-align: center; width: 100%;">Initialize Package Scope</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           4. THE 16 SERVICES COMPREHENSIVE DIRECTORY
+           ========================================================================== -->
+        <section class="matrix-section">
+            <div class="container">
+                <div class="matrix-title">
+                    <h2>Full Service Capabilities Matrix</h2>
+                    <p class="text-muted">Every service module we provide can be requested individually or integrated directly into custom contracts.</p>
+                </div>
+                
+                <div class="matrix-grid">
+                    <div class="matrix-item"><div class="matrix-dot"></div>Custom Web Engineering</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Frontend System Architecture</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Backend PHP Configuration</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Firebase Live Sync Setup</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Relational Database Management</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>User Interface Optimization</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Fluid CSS Keyframe Animation</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Responsive Layout Audits</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Corporate Brand Frameworks</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Vector Visual Asset Layout</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Ad Platform Pixel Tracking</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Conversion Funnel Design</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Domain Nameserver Routing</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Git Collaborative Workflows</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Interactive Filtering Scripts</div>
+                    <div class="matrix-item"><div class="matrix-dot"></div>Admin Panel Logic Structures</div>
+                </div>
+
+                <!-- ==========================================================================
+                   5. COMPLIANCE-DRIVEN DYNAMIC PRICING DISCLAIMER
+                   ========================================================================== -->
+                <div class="compliance-disclaimer">
+                    <h4>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        Dynamic Pricing &amp; Service Scope Disclaimer
+                    </h4>
+                    <p>Please note that the pricing listed above represents standard base configurations for typical professional website deployments. Final pricing is dynamic and determined uniquely for each project based on the final, client-approved Project Specification Document. Factors that will alter final billing include required third-party API integrations, database storage volume, server specifications, custom encryption assets, and extended support SLA timelines. Miracle Media Entertainment does not execute transactions without a formal, itemized business invoice and signed master service agreement.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+       6. COMPLIANCE-DRIVEN FOOTER BLOCK (Identical Structure)
+       ========================================================================== -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="color: #ffffff;">Miracle<span>Media</span></a>
+                <p>Premium web engineering, custom database automation solutions, and enterprise-grade visual identity design.</p>
+                <p style="font-size: 0.8rem; color: #6b7280;">RC Number: CAC Registration Pending</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation Hub</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="index.html">Home Overview</a>
+                    <a href="about.html">Corporate Story</a>
+                    <a href="services.html">Service Portfolio</a>
+                    <a href="pricing.html">Fixed Packages</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Expertise</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="services.html">Web Engineering</a>
+                    <a href="services.html">E-Commerce Setup</a>
+                    <a href="services.html">Digital Campaigns</a>
+                    <a href="services.html">Brand Architecture</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Corporate Contact</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <span style="color: #9ca3af;">Calabar, Cross River, Nigeria</span>
+                    <a href="mailto:miraclemediaassistant@gmail.com">info@miraclemedia.com.ng</a>
+                    <span style="color: #9ca3af;">+234 9050139052</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Miracle Media Entertainment. All Rights Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="privacy.html" aria-label="Privacy Policy Documentation">Privacy Policy</a>
+                <a href="terms.html" aria-label="Terms of Service Agreement">Terms of Service</a>
+                <a href="refund.html" aria-label="Refund Framework Structure">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Interface Element -->
+    <button class="back-to-top" aria-label="Scroll back to top of the screen">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <!-- Core Interactive Script -->
+    <script src="script.js"></script>
+</body>
+</html>
