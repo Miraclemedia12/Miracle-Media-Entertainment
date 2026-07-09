@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | Case Studies & Technical Deployments | Miracle Media Entertainment</title>
+    <meta name="description" content="Explore the official portfolio of Miracle Media Entertainment. High-performance enterprise websites, automated business dashboards, and custom e-commerce systems deployed across Nigeria.">
+    <!-- Core Stylesheet References -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .portfolio-header {
+            text-align: center;
+            padding: 8rem 2rem 4rem 2rem;
+            background: var(--bg-surface);
+        }
+        .portfolio-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .portfolio-container {
+            padding: 4rem 2rem;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+        .portfolio-visual {
+            background: var(--gradient-subtle);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding: 1.5rem;
+        }
+        .portfolio-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .portfolio-body {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+        .portfolio-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+        .client-meta {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .portfolio-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .tech-badge {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .portfolio-link {
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       1. NAVIGATION HEADER (Consistent Framework)
+       ========================================================================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="Miracle Media Entertainment Home">
+                Miracle<span>Media</span>
+            </a>
+            
+            <nav class="nav-layout">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light website mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM6.99 16.89l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="#111827"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.5-.1 1 .3.9.8-.1.4-.4.8-.4 1.3 0 4.4 3.6 8 8 8 .4 0 .9-.1 1.3-.4.5-.3 1.1 0 .9.5-.9 4.7-5 8.2-8.8 8.2z"/></svg>
+                </button>
+                <a href="contact.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Get Started</a>
+                
+                <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle main menu navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+       2. HERO TITLE SECTION
+       ========================================================================== -->
+    <main>
+        <section class="portfolio-header">
+            <div class="container">
+                <h1>Our Engineering <span class="primary-text">Case Studies</span></h1>
+                <p class="text-muted" style="max-width: 650px; margin: 0 auto;">A verified record of responsive corporate websites, business automation systems, and high-performance digital projects executed completely to client specifications.</p>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           3. PORTFOLIO DEPLOYMENTS GRID
+           ========================================================================== -->
+        <section class="portfolio-container">
+            <div class="container">
+                <div class="portfolio-grid">
+
+                    <!-- CASE STUDY 1: Stream Africa Media Analytics -->
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="portfolio-visual">
+                                <span class="portfolio-tag">Software Dev</span>
+                                <span style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Stream Africa</span>
+                            </div>
+                            <div class="portfolio-body">
+                                <div class="client-meta">Media &amp; Entertainment Sector</div>
+                                <h3>Real-Time Content Performance Analytics Panel</h3>
+                                <p class="portfolio-desc">Engineered a live data administration console tracking media consumption and user streaming traffic parameters. Features a clean administrative dashboard for site layout content management.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">PHP</span>
+                                    <span class="tech-badge">Firebase</span>
+                                    <span class="tech-badge">Firestore DB</span>
+                                    <span class="tech-badge">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 0 2rem 2rem 2rem;">
+                            <a href="contact.html?project=stream-africa" class="btn btn-outline portfolio-link">View Project Parameters</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE STUDY 2: Celeste Logistics Dashboard -->
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="portfolio-visual">
+                                <span class="portfolio-tag">Automation</span>
+                                <span style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Celeste Logistics</span>
+                            </div>
+                            <div class="portfolio-body">
+                                <div class="client-meta">Business Automation Solutions</div>
+                                <h3>Corporate Order Hub &amp; Inventory Management Portal</h3>
+                                <p class="portfolio-desc">Architected a secure internal operations dashboard for corporate client management. Built with structured product tier tracking, automated order logs, and custom system sessions.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Full-Stack PHP</span>
+                                    <span class="tech-badge">Relational DB</span>
+                                    <span class="tech-badge">Custom Sessions</span>
+                                    <span class="tech-badge">CSS Grid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 0 2rem 2rem 2rem;">
+                            <a href="contact.html?project=celeste" class="btn btn-outline portfolio-link">View System Scope</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE STUDY 3: Gambo Autos Demo Site -->
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="portfolio-visual">
+                                <span class="portfolio-tag">Web Dev / Design</span>
+                                <span style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Gambo Autos</span>
+                            </div>
+                            <div class="portfolio-body">
+                                <div class="client-meta">Automotive Retail Sector</div>
+                                <h3>Premium Responsive Dealership Showcase Platform</h3>
+                                <p class="portfolio-desc">Designed and deployed a highly fluid corporate showcase web interface utilizing custom CSS keyframe animations, interactive vehicle filtering, and pristine layout performance.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">Custom CSS3</span>
+                                    <span class="tech-badge">Keyframe Anim</span>
+                                    <span class="tech-badge">UX Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 0 2rem 2rem 2rem;">
+                            <a href="contact.html?project=gambo" class="btn btn-outline portfolio-link">Inspect UI Layout</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE STUDY 4: Glamour Creative Agency Portfolio -->
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="portfolio-visual">
+                                <span class="portfolio-tag">Web Engineering</span>
+                                <span style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Glamour Agency</span>
+                            </div>
+                            <div class="portfolio-body">
+                                <div class="client-meta">Professional Services / Booking</div>
+                                <h3>Digital Creative Showcase &amp; Appointment Router</h3>
+                                <p class="portfolio-desc">Engineered the core visual architecture and robust domain routing system for a modern creative team website. Features optimized image grids and automated appointment lead sorting.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Git Workflow</span>
+                                    <span class="tech-badge">Domain Routing</span>
+                                    <span class="tech-badge">Frontend Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 0 2rem 2rem 2rem;">
+                            <a href="contact.html?project=glamour" class="btn btn-outline portfolio-link">Review Repository Metrics</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE STUDY 5: FortuneX Marketing Funnel -->
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="portfolio-visual">
+                                <span class="portfolio-tag">Paid Ads / Marketing</span>
+                                <span style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">FortuneX Properties</span>
+                            </div>
+                            <div class="portfolio-body">
+                                <div class="client-meta">Real Estate / Lead Acquisition</div>
+                                <h3>High-Conversion Corporate Landing Page System</h3>
+                                <p class="portfolio-desc">Designed a highly persuasive sales layout optimized for estate property listings. Integrated precise Google analytics, custom script countdown boxes, and conversion pixels.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Conversion Copy</span>
+                                    <span class="tech-badge">JS Countdowns</span>
+                                    <span class="tech-badge">Google Pixel Sync</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 0 2rem 2rem 2rem;">
+                            <a href="contact.html?project=fortunex" class="btn btn-outline portfolio-link">Examine Funnel Analytics</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE STUDY 6: Pulse Wellness UI -->
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="portfolio-visual">
+                                <span class="portfolio-tag">UI/UX &amp; Branding</span>
+                                <span style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">Pulse Wellness</span>
+                            </div>
+                            <div class="portfolio-body">
+                                <div class="client-meta">Health &amp; Lifestyle Management</div>
+                                <h3>Corporate Identity Branding &amp; Platform Layout</h3>
+                                <p class="portfolio-desc">Formulated original visual brand concepts, logo variations, and structural web layout grids for an enterprise wellness platform. Mapped to emphasize corporate typography and clean layouts.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">UI Prototyping</span>
+                                    <span class="tech-badge">Brand Guidelines</span>
+                                    <span class="tech-badge">Vector Graphics</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 0 2rem 2rem 2rem;">
+                            <a href="contact.html?project=pulse-wealth" class="btn btn-outline portfolio-link">View Prototype Blueprint</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+       4. COMPLIANCE-DRIVEN FOOTER BLOCK (Identical Structure)
+       ========================================================================== -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="color: #ffffff;">Miracle<span>Media</span></a>
+                <p>Premium web engineering, custom database automation solutions, and enterprise-grade visual identity design.</p>
+                <p style="font-size: 0.8rem; color: #6b7280;">RC Number: CAC Registration Pending</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation Hub</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="index.html">Home Overview</a>
+                    <a href="about.html">Corporate Story</a>
+                    <a href="services.html">Service Portfolio</a>
+                    <a href="pricing.html">Fixed Packages</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Expertise</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="services.html">Web Engineering</a>
+                    <a href="services.html">E-Commerce Setup</a>
+                    <a href="services.html">Digital Campaigns</a>
+                    <a href="services.html">Brand Architecture</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Corporate Contact</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <span style="color: #9ca3af;">Calabar, Cross River, Nigeria</span>
+                    <a href="mailto:miraclemediaassistant@gmail.com">info@miraclemedia.com.ng</a>
+                    <span style="color: #9ca3af;">+234 (0) 9050139052</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Miracle Media Entertainment. All Rights Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="privacy.html" aria-label="Privacy Policy Documentation">Privacy Policy</a>
+                <a href="terms.html" aria-label="Terms of Service Agreement">Terms of Service</a>
+                <a href="refund.html" aria-label="Refund Framework Structure">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Interface Element -->
+    <button class="back-to-top" aria-label="Scroll back to top of the screen">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <!-- Core Interactive Script -->
+    <script src="script.js"></script>
+</body>
+</html>
