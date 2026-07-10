@@ -332,6 +332,7 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- URL Query Parameter Logic ---
             const urlParams = new URLSearchParams(window.location.search);
             const tierParam = urlParams.get('tier');
             const projectParam = urlParams.get('project');
@@ -339,14 +340,12 @@
             const scopeTextArea = document.getElementById('project-scope');
 
             if (categorySelect) {
-                // Check if came from Pricing Tier click
                 if (tierParam) {
                     if (['essentials', 'growth', 'enterprise'].includes(tierParam)) {
                         categorySelect.value = tierParam;
                         scopeTextArea.placeholder = `You selected the ${tierParam.toUpperCase()} package tier. Please share any special setup criteria or feature adjustments you require here...`;
                     }
                 }
-                // Check if came from Portfolio Spec view click
                 else if (projectParam) {
                     if (['stream-africa', 'gambo', 'celeste', 'glamour', 'fortunex', 'pulse-wealth'].includes(projectParam)) {
                         if (['stream-africa', 'celeste'].includes(projectParam)) {
@@ -360,7 +359,66 @@
                     }
                 }
             }
+
+            // --- Telegram Form Submission Routing ---
+            const form = document.getElementById('project-scope-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Stops the annoying 404 browser reload
+
+                    const submitBtn = form.querySelector('.form-submit-btn');
+                    const originalBtnText = submitBtn.innerText;
+                    submitBtn.innerText = "Transmitting Blueprint...";
+                    submitBtn.disabled = true;
+
+                    // Collect input values
+                    const name = document.getElementById('client-name').value;
+                    const email = document.getElementById('client-email').value;
+                    const phone = document.getElementById('client-phone').value;
+                    const category = categorySelect.options[categorySelect.selectedIndex].text;
+                    const scope = scopeTextArea.value;
+
+                    // Formatted corporate preface message for your Telegram alert
+                    const telegramMessage = `🚀 *New Project Scope Blueprint Received*\n\n` +
+                                            `👤 *Client/Entity:* ${name}\n` +
+                                            `📧 *Business Email:* ${email}\n` +
+                                            `📞 *Telephone Line:* ${phone}\n` +
+                                            `🛠 *Selected Module:* ${category}\n\n` +
+                                            `📋 *Functional Parameters:*\n${scope}\n\n` +
+                                            `⚡ _Sent instantly via Miracle Media Systems_`;
+
+                    // Replace these credentials with your actual bot details
+                    const BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN";
+                    const CHAT_ID = "YOUR_TELEGRAM_PERSONAL_CHAT_ID"; 
+
+                    const telegramApiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+                    fetch(telegramApiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: CHAT_ID,
+                            text: telegramMessage,
+                            parse_mode: "Markdown"
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("Success! Project data secure. Your technical specifications blueprint has been routed directly to our team.");
+                            form.reset();
+                        } else {
+                            alert("Transmission pipeline bottleneck. Please reach out via our direct email desk.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("Network exception error. Please check your internet connectivity.");
+                    })
+                    .finally(() => {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
         });
     </script>
-</body>
-</html>
