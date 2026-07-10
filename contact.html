@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initialize Project Scope | Contact Miracle Media Entertainment</title>
+    <meta name="description" content="Get in touch with Miracle Media Entertainment for custom web engineering, corporate database automation, and enterprise visual asset deployment in Nigeria.">
+    <!-- Core Stylesheet References -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-header {
+            text-align: center;
+            padding: 8rem 2rem 3rem 2rem;
+            background: var(--bg-surface);
+        }
+        .contact-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact-container {
+            padding: 2rem 2rem 6rem 2rem;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        /* Left Column: Corporate Info Details */
+        .contact-info h2 {
+            font-size: 1.85rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+        .contact-info p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+        .info-card-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .info-details h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+        .info-details a, .info-details span {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+        
+        /* Right Column: Secure Form UI */
+        .contact-form-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+            padding-right: 2.5rem;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-submit-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       1. NAVIGATION HEADER (Consistent Framework)
+       ========================================================================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="Miracle Media Entertainment Home">
+                Miracle<span>Media</span>
+            </a>
+            
+            <nav class="nav-layout">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light website mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM6.99 16.89l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="#111827"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.5-.1 1 .3.9.8-.1.4-.4.8-.4 1.3 0 4.4 3.6 8 8 8 .4 0 .9-.1 1.3-.4.5-.3 1.1 0 .9.5-.9 4.7-5 8.2-8.8 8.2z"/></svg>
+                </button>
+                <a href="contact.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Get Started</a>
+                
+                <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle main menu navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+       2. HERO TITLE SECTION
+       ========================================================================== -->
+    <main>
+        <section class="contact-header">
+            <div class="container">
+                <h1>Initiate a <span class="primary-text">Project Scope</span></h1>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Ready to deploy? Submit your engineering requirements below. Our technical team responds with formal spec blueprints within 24 business hours.</p>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           3. CONTACT COMPONENT WRAPPER
+           ========================================================================== -->
+        <section class="contact-container">
+            <div class="container">
+                <div class="contact-wrapper">
+                    
+                    <!-- Left Column: Business Channels -->
+                    <div class="contact-info">
+                        <h2>Corporate Channels</h2>
+                        <p>For urgent SLA tracking, ongoing code revisions, or immediate contract signing requests, use our direct enterprise lines below.</p>
+                        
+                        <div class="info-card-group">
+                            <!-- Email Channel -->
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Corporate Desk</h4>
+                                    <a href="mailto:miraclemediaassistant@gmail.com">miraclemediaassistant@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <!-- Phone Channel -->
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Direct Communication</h4>
+                                    <a href="tel:+2349050139052">+234 (0) 905 013 9052</a>
+                                </div>
+                            </div>
+
+                            <!-- Location Channel -->
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Operations Base</h4>
+                                    <span>Calabar, Cross River, Nigeria</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Form -->
+                    <div class="contact-form-box">
+                        <form action="#" method="POST" id="project-scope-form">
+                            <div class="form-group">
+                                <label for="client-name">Full Name / Corporate Entity</label>
+                                <input type="text" id="client-name" name="name" class="form-control" placeholder="e.g., John Doe or Gambo Autos Ltd" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client-email">Business Email Address</label>
+                                <input type="email" id="client-email" name="email" class="form-control" placeholder="name@company.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client-phone">Contact Telephone</label>
+                                <input type="tel" id="client-phone" name="phone" class="form-control" placeholder="e.g., 08012345678" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-category">Primary Service Module</label>
+                                <select id="project-category" name="category" class="form-control" required>
+                                    <option value="" disabled selected>Select service focus...</option>
+                                    <option value="essentials">Corporate Essentials Tier (₦150k Base)</option>
+                                    <option value="growth">Business Growth Hub Tier (₦350k Base)</option>
+                                    <option value="enterprise">Enterprise Automation Tier (₦750k Base)</option>
+                                    <option value="web-engineering">Custom Web Engineering Only</option>
+                                    <option value="database-setup">Backend PHP / Database Relational Infrastructure</option>
+                                    <option value="pixel-tracking">Ad Conversion Funnel &amp; Pixel Sync</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-scope">Functional Scope Parameters</label>
+                                <textarea id="project-scope" name="scope" class="form-control" placeholder="Describe layout rules, database needs, pages required, or timing milestones..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-submit-btn">Transmit Project Blueprint</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+       4. COMPLIANCE-DRIVEN FOOTER BLOCK (Identical Structure)
+       ========================================================================== -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="color: #ffffff;">Miracle<span>Media</span></a>
+                <p>Premium web engineering, custom database automation solutions, and enterprise-grade visual identity design.</p>
+                <p style="font-size: 0.8rem; color: #6b7280;">RC Number: CAC Registration Pending</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation Hub</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="index.html">Home Overview</a>
+                    <a href="about.html">Corporate Story</a>
+                    <a href="services.html">Service Portfolio</a>
+                    <a href="pricing.html">Fixed Packages</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Expertise</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="services.html">Web Engineering</a>
+                    <a href="services.html">E-Commerce Setup</a>
+                    <a href="services.html">Digital Campaigns</a>
+                    <a href="services.html">Brand Architecture</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Corporate Contact</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <span style="color: #9ca3af;">Calabar, Cross River, Nigeria</span>
+                    <a href="mailto:info@miraclemedia.com.ng">info@miraclemedia.com.ng</a>
+                    <span style="color: #9ca3af;">+234 (0) 812 345 6789</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Miracle Media Entertainment. All Rights Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="privacy.html" aria-label="Privacy Policy Documentation">Privacy Policy</a>
+                <a href="terms.html" aria-label="Terms of Service Agreement">Terms of Service</a>
+                <a href="refund.html" aria-label="Refund Framework Structure">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Interface Element -->
+    <button class="back-to-top" aria-label="Scroll back to top of the screen">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <!-- Core Interactive Script + URL Parameter Selector Parsing Logic -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tierParam = urlParams.get('tier');
+            const projectParam = urlParams.get('project');
+            const categorySelect = document.getElementById('project-category');
+            const scopeTextArea = document.getElementById('project-scope');
+
+            if (categorySelect) {
+                // Check if came from Pricing Tier click
+                if (tierParam) {
+                    if (['essentials', 'growth', 'enterprise'].includes(tierParam)) {
+                        categorySelect.value = tierParam;
+                        scopeTextArea.placeholder = `You selected the ${tierParam.toUpperCase()} package tier. Please share any special setup criteria or feature adjustments you require here...`;
+                    }
+                }
+                // Check if came from Portfolio Spec view click
+                else if (projectParam) {
+                    if (['stream-africa', 'gambo', 'celeste', 'glamour', 'fortunex', 'pulse-wealth'].includes(projectParam)) {
+                        if (['stream-africa', 'celeste'].includes(projectParam)) {
+                            categorySelect.value = 'database-setup';
+                        } else if (['gambo', 'glamour'].includes(projectParam)) {
+                            categorySelect.value = 'web-engineering';
+                        } else {
+                            categorySelect.value = 'pixel-tracking';
+                        }
+                        scopeTextArea.value = `Inquiry referencing existing architecture parameters from: [Case Study - Reference ID: ${projectParam.toUpperCase()}]. Please detail your specific target execution metrics below: \n\n`;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
